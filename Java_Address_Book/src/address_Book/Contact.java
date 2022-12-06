@@ -1,31 +1,31 @@
 package address_Book;
 
-import java.util.ArrayList;
-import java.util.ListIterator;
+
+
 
 //Phi
 public class Contact {
 
-	private String fName;
-	private String lName;
-	private String phoneN;
+	private String firstName;
+	private String lastName;
+	private String phoneNumber;
 	private String email;
 //Constructors
-	public Contact(String firstN, String lastN, String number, String email) {
-		this.fName = firstN;
-		this.lName = lastN;
-		this.phoneN = number;
+	public Contact(String firstName, String lastName, String phoneNumber, String email) {
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.phoneNumber = phoneNumber;
 		this.email = email;
 	}
 
-	public Contact(String firstN, String lastN, String email) {
-		this.fName = firstN;
-		this.lName = lastN;
+	public Contact(String firstName, String lastName, String email) {
+		this.firstName = firstName;
+		this.lastName = lastName;
 		this.email = email;
 	}
 
-	public Contact(String number, String email) {
-		this.phoneN = number;
+	public Contact(String phoneNumber, String email) {
+		this.phoneNumber = phoneNumber;
 		this.email = email;
 	}
 
@@ -33,41 +33,45 @@ public class Contact {
 		this.email = email;
 	}
 
-	public String getFName() {
-		return this.fName;
+	
+	//Gets
+	public String getFirstName() {
+		return firstName;
 	}
 
-	public String getLName() {
-		return this.lName;
+	public String getLastName() {
+		return lastName;
 	}
 
-	public String getPhoneN() {
-		return this.phoneN;
+	public String getPhoneNumber() {
+		return phoneNumber;
 	}
 
 	public String getEmail() {
-		return this.email;
+		return email;
 	}
-
+	
+	
+//Sets
 	public void setEmail(String email) {
-		this.fName = email;
+		this.email = email;
 	}
 
-	public void setFName(String firstN) {
-		this.fName = firstN;
+	public void setFName(String firstName) {
+		this.firstName = firstName;
 	}
 
-	public void setLName(String lastN) {
-		this.lName = lastN;
+	public void setLName(String lastName) {
+		this.lastName = lastName;
 	}
 
-	public void setPhoneN(String number) {
-		this.phoneN = number;
+	public void setPhoneN(String phoneNumber) {
+		this.phoneNumber = phoneNumber;
 	}
 
 	@Override
 	public String toString() {
-		String str = "\n\n" + getFName() + " " + getLName() + "\n" + getPhoneN() + "\n" + getEmail() + "\n\n";
+		String str = "\n\n" + getFirstName() + " " + getLastName() + "\n" + getPhoneNumber() + "\n" + getEmail() + "\n\n";
 		return str;
 	}
 

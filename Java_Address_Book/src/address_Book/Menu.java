@@ -4,14 +4,16 @@
 	import java.util.Scanner;
 
 	public class Menu {
-
+//Create Address Book; Empty
+		
 		public static ArrayList<Contact> contactList  = new ArrayList<>();
 		
 		public static void main(String[] args) {
 			addEntry();
-		}
+		
+		
 //			Scanner input = new Scanner(System.in);  // Create a Scanner object
-//
+}
 //			System.out.println("What action would you like to perform?");
 //			System.out.println("");
 //			System.out.println("1) Add an entry");
@@ -71,44 +73,113 @@
 //		//Asks user for Contact details
 ////		
 		
+//		public static void addEntry() {
+////			printBar(numBars:1);
+//			try (Scanner input = new Scanner(System.in)) {
+//			Contact contact = new Contact(null, null, null, null);
+//			System.out.println("Adding Contact to Address Book");
+//			
+//			System.out.println("Enter first name");
+//			contact.setFName(input.next());
+//			
+//			System.out.println("Enter last name");
+//			contact.setLName(input.next());
+//			
+//			System.out.println("Enter phone number");
+//			contact.setPhoneN(input.next());
+//			
+//			System.out.println("Enter email address.");
+//			contact.setEmail(input.next());
+//			
+//			//add to contactList
+//			contactList.add(contact);
+//		}
+//			System.out.print(contactList);
+//		}
 		
 //		
 			
 		public static void addEntry() {
-		Scanner input = new Scanner(System.in);
-			System.out.println("Enter first name");
-			String firstN = input.next();
-			System.out.println("Enter last name");
-			String lastN = input.next();
-			System.out.println("Enter phone number");
-			String phoneN = input.next();
-			System.out.println("Enter email address.");
-			String email = input.next();
-			
-			 Contact k = new Contact(firstN, lastN,phoneN, email);
-			contactList.add(k);
+			try (Scanner input = new Scanner(System.in)) {
+				
+				System.out.println("Enter first name");
+				String firstName = input.next();
+//				Contact.setFirstName(input.next());
+				System.out.println("Enter last name");
+				String lastName = input.next();
+				System.out.println("Enter phone number");
+				String phoneNumber = input.next();
+				System.out.println("Enter email address.");
+				String email = input.next();
+				
+				 Contact k = new Contact(firstName, lastName,phoneNumber, email);
+				contactList.add(k);
+			}
+			System.out.print(contactList);
 		}
-	}
+//	}
 ////		public Contact(String firstN, String lastN, String number, String email) {
 ////			this.fName = firstN;
 ////			this.lName = lastN;
 ////			this.phoneN = number;
 ////			this.email = email;
 //		public removeEntry() {
+//			public void deleteEntry() {
+//				try (Scanner input = new Scanner(System.in)) {
+//					System.out.println("Enter first name you want to delete");
+//					String delN = input.next();
+//					if(delN ==null)return;
+//					for(int i=0, i < contactList.size(), i++)
+//						if (contactList[i] != null && delN.equals(contactList[i].getName())) {
+//				            /* null out the deleted entry */
+//				            entry[i] = null;
+//					 Contact k = new Contact(firstN, lastN,phoneN, email);
+//					contactList.add(k);
+//				}
+	
+	
+	
+	
+	
+	
+	
+    /* get the input */
+//		    SName = JOptionPane.showInputDialog("Enter Name to delete: ");
+//		    /* if no input, nothing to delete */
+//		    if(SName == null) return;
+//		    /* find the name */
+//		    for (int i = 0; i < counter; i++) {
+//		        /* make sure we have an entry*/
+//		                                /* we know SName is not null */
+//		        if (entry[i] != null && SName.equals(entry[i].getName())) {
+//		            /* null out the deleted entry */
+//		            entry[i] = null;
+//            // break; /* If you know you have unique names, you can leave the for loop now */
+//        } /* end if */
+//    } /* end for i*/
+//}
+//		}
+//		public void searchEntry() {
 //			
 //		}
-//		public searchEntry() {
-//			
-//		}
-//		public printAddressBook() {
+//		public void printAddressBook() {
 //			ListIterator<Contact> litr = contactList.listIterator();
 //			while (litr.hasNext()) {
 //				System.out.println(litr.next());
 //		}
-//		public deleteBook() {
+//		public void deleteBook() {
 //			
 //		}
-//		public quit() {
-//			quit())
+//		public void quit() {
+//			
 //		}
+				private static void printBars(int numBars){
+			        for (int i = 0; i < numBars ; i++) {
+			            printBar();
+			        }
+			    }
+				 private static void printBar() {
+				        System.out.println("===========================================");
+				    }
+			}
 //	}
