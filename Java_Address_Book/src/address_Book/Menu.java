@@ -1,9 +1,12 @@
 	package address_Book;
+	import java.util.ArrayList;
 	import java.util.ListIterator;
-import java.util.Scanner;
+	import java.util.Scanner;
 
-	public class Main {
+	public class Menu {
 
+		public static ArrayList<Contact> contactList = new ArrayList<>();
+		
 		public static void main(String[] args) {
 			System.out.println("What action would you like to perform?");
 			println();
@@ -66,11 +69,14 @@ import java.util.Scanner;
 
 		}
 		//Asks user for Contact details
-		public static Arraylist<String> contactDetails = new Arraylist<>();
+//		
+		public int k = contactList.size() + 1;
+		
 		
 		}
 		public addEntry() {
-			this.contactList.add(a);
+			Contact k = new Contact(Contact.getFName(), "Ngo", "(333)333-3333", "aaaaaaaaaa@aaaaa.aaa");
+			this.contactList.add(k);
 }
 		public removeEntry() {
 			
