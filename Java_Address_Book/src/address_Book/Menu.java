@@ -153,9 +153,9 @@
 		}
 		}
 		
-//		public void quit() {
-//			
-//		}
+		public void quit() {
+			System.exit(0);
+		}
 				private static void printBars(int numBars){
 			        for (int i = 0; i < numBars ; i++) {
 			            printBar();
