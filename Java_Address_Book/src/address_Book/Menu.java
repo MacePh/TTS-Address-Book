@@ -1,5 +1,6 @@
 	package address_Book;
-	import java.util.Scanner;
+	import java.util.ListIterator;
+import java.util.Scanner;
 
 	public class Main {
 
@@ -64,8 +65,12 @@
 			The user must enter a number 1-6. If the user enters invalid input, print an error message and show the main menu again to take in a new input.*/ 
 
 		}
+		//Asks user for Contact details
+		public static Arraylist<String> contactDetails = new Arraylist<>();
+		
+		}
 		public addEntry() {
-			
+			this.contactList.add(a);
 }
 		public removeEntry() {
 			
@@ -74,7 +79,9 @@
 			
 		}
 		public printAddressBook() {
-			
+			ListIterator<Contact> litr = contactList.listIterator();
+			while (litr.hasNext()) {
+				System.out.println(litr.next());
 		}
 		public deleteBook() {
 			
