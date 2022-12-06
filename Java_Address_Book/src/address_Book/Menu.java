@@ -44,8 +44,11 @@
 			case 5:
 				//"5) Delete Book");
 				break;
-			case 6: //quit
-
+			case 6: 
+				//quit
+				break;
+			default:
+		          System.out.println("Invalid Input!");
 			}
 			/*Starting the Program 
 			Upon starting the program, it should as the user what action they want to perform. 
