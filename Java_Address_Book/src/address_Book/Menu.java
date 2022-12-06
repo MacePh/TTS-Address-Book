@@ -1,27 +1,28 @@
 	package address_Book;
 	import java.util.Scanner;
 
-	public class Main {
+	public class Menu {
 
 		public static void main(String[] args) {
+			Scanner input = new Scanner(System.in);  // Create a Scanner object
+
 			System.out.println("What action would you like to perform?");
-			System.out.println(\n);
+			System.out.println("");
 			System.out.println("1) Add an entry");
-			System.out.println(\n);
+			System.out.println("");
 			System.out.println("2) Remove an entry");
-			System.out.println(\n);
+			System.out.println("");
 			System.out.println("3) Search for a specific entry");
-			System.out.println(\n);
+			System.out.println("");
 			System.out.println("4) Print Address Book");
-			System.out.println(\n);
+			System.out.println("");
 			System.out.println("5) Delete Book");
-			System.out.println(\n);
+			System.out.println("");
 			System.out.println("6) Quit");
-			System.out.println(\n);
+			System.out.println("");
 			System.out.println("Please enter a number 1-6 to make your selection.");
 			
-			Int userChoice = input.next();
-			
+			int userChoice = input.nextInt();
 			
 			//passing variable to the switch
 			
