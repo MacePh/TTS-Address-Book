@@ -17,7 +17,9 @@ public class Main {
 		Menu.contactList.add(a);
 		Menu.contactList.add(b);
 		Menu.contactList.add(c);
-		Menu.addEntry();
+//		Menu.addEntry();
+//		Menu.removeEntry();
+//		Menu.deleteBook();
 //		ListIterator<Contact> litr = contactList.listIterator();
 //		while (litr.hasNext()) {
 //			System.out.println(litr.next());

@@ -9,7 +9,8 @@
 		public static ArrayList<Contact> contactList  = new ArrayList<>();
 		
 		public static void main(String[] args) {
-			addEntry();
+//			addEntry();
+			
 		
 		
 //			Scanner input = new Scanner(System.in);  // Create a Scanner object
@@ -115,61 +116,43 @@
 				 Contact k = new Contact(firstName, lastName,phoneNumber, email);
 				contactList.add(k);
 			}
-			System.out.print(contactList);
+//			System.out.print(contactList);
 		}
-//	}
-////		public Contact(String firstN, String lastN, String number, String email) {
-////			this.fName = firstN;
-////			this.lName = lastN;
-////			this.phoneN = number;
-////			this.email = email;
-//		public removeEntry() {
-//			public void deleteEntry() {
-//				try (Scanner input = new Scanner(System.in)) {
-//					System.out.println("Enter first name you want to delete");
-//					String delN = input.next();
-//					if(delN ==null)return;
-//					for(int i=0, i < contactList.size(), i++)
-//						if (contactList[i] != null && delN.equals(contactList[i].getName())) {
-//				            /* null out the deleted entry */
-//				            entry[i] = null;
-//					 Contact k = new Contact(firstN, lastN,phoneN, email);
-//					contactList.add(k);
-//				}
-	
-	
-	
-	
-	
-	
-	
-    /* get the input */
-//		    SName = JOptionPane.showInputDialog("Enter Name to delete: ");
-//		    /* if no input, nothing to delete */
-//		    if(SName == null) return;
-//		    /* find the name */
-//		    for (int i = 0; i < counter; i++) {
-//		        /* make sure we have an entry*/
-//		                                /* we know SName is not null */
-//		        if (entry[i] != null && SName.equals(entry[i].getName())) {
-//		            /* null out the deleted entry */
-//		            entry[i] = null;
-//            // break; /* If you know you have unique names, you can leave the for loop now */
-//        } /* end if */
-//    } /* end for i*/
-//}
-//		}
+
+		public static void removeEntry() {
+			printAddressBook();
+				try (Scanner input = new Scanner(System.in)) {
+					System.out.println("Index values start at 0. \n which one do you want to delete?");
+					contactList.remove(input.nextInt());	
+				}
+				printAddressBook();
+				System.out.println("Your welcome!");
+		}
+
 //		public void searchEntry() {
 //			
 //		}
-//		public void printAddressBook() {
-//			ListIterator<Contact> litr = contactList.listIterator();
-//			while (litr.hasNext()) {
-//				System.out.println(litr.next());
-//		}
-//		public void deleteBook() {
-//			
-//		}
+		public static void printAddressBook() {
+			ListIterator<Contact> litr = contactList.listIterator();
+			while (litr.hasNext()) {
+				System.out.print(litr.next());
+		}
+		}
+		public static void deleteBook() {
+			try (Scanner input = new Scanner(System.in)) {
+			System.out.println("Delete all our hard work?\n 'y': I'm a jerk! \n 'n': whoops didn't meant to.");
+			String userInput = input.next();
+			
+			if (userInput.equalsIgnoreCase("y")) {
+					System.out.println("Seriously!.....");
+					contactList.clear();
+				} 
+			else if(userInput.equalsIgnoreCase("n")) {
+					System.out.println("Thank you!");
+				}
+		}
+		}
+		
 //		public void quit() {
 //			
 //		}
