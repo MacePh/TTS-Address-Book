@@ -1,7 +1,11 @@
 package address_Book;
 
-import java.util.ArrayList;
-import java.util.ListIterator;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.util.Arrays;
+import java.util.Scanner;
 
 //Phi
 public class Contact {
@@ -70,5 +74,36 @@ public class Contact {
 		String str = "\n\n" + getFName() + " " + getLName() + "\n" + getPhoneN() + "\n" + getEmail() + "\n\n";
 		return str;
 	}
+	
+	
+	   public static void addContact(String[] newContact) throws Exception {
+		      FileWriter writer = new FileWriter("contactList.txt");
+		      String arr[] = newContact;
+		      int len = arr.length;
+		      for (int i = 0; i < len; i++) {
+		         writer.write(arr[i] + "-");
+		      }
+		      writer.close();
+		   }
+
+
+
+
+	      public static void listContacts(String a[]) throws Exception {
+	         Scanner sc = new Scanner(new BufferedReader(new FileReader("contactList.txt")));
+	         int rows = 3;
+	         int columns = 4;
+	         int [][] myArray = new int[rows][columns];
+	         while(sc.hasNextLine()) {
+	            for (int i=0; i<myArray.length; i++) {
+	               String[] line = sc.nextLine().trim().split(" ");
+	               for (int j=0; j<line.length; j++) {
+	                  myArray[i][j] = Integer.parseInt(line[j]);
+	               }
+	            }
+	         }
+	         System.out.println(Arrays.deepToString(myArray));
+	      }
+	   
 
 }
