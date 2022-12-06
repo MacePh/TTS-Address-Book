@@ -10,7 +10,7 @@ public class Contact {
 	private String lName;
 	private String phoneN;
 	private String email;
-
+//Constructors
 	public Contact(String firstN, String lastN, String number, String email) {
 		this.fName = firstN;
 		this.lName = lastN;
