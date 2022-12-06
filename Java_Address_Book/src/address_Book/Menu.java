@@ -5,47 +5,45 @@
 
 		public static void main(String[] args) {
 			System.out.println("What action would you like to perform?");
-			println();
+			System.out.println(\n);
 			System.out.println("1) Add an entry");
-			println();
+			System.out.println(\n);
 			System.out.println("2) Remove an entry");
-			println();
+			System.out.println(\n);
 			System.out.println("3) Search for a specific entry");
-			println();
+			System.out.println(\n);
 			System.out.println("4) Print Address Book");
-			println();
+			System.out.println(\n);
 			System.out.println("5) Delete Book");
-			println();
+			System.out.println(\n);
 			System.out.println("6) Quit");
-			println();
+			System.out.println(\n);
 			System.out.println("Please enter a number 1-6 to make your selection.");
 			
 			Int userChoice = input.next();
 			
 			
 			//passing variable to the switch
-			int userChose = input.next();
 			
-			
-			switch (userChose)
+			switch (userChoice)
 			{
 			//comparing value of variable against each case
-			case 0:
+			case 1:
 				//execute "1) Add an entry");
 				break;
-			case 1:
+			case 2:
 				// execute "2) Remove an entry");
 				break;
-			case 2: 
+			case 3: 
 				//"3) Search for a specific entry");
 				break;
-			case 3:
+			case 4:
 				//"4) Print Address Book");
 				break;
-			case 4:
+			case 5:
 				//"5) Delete Book");
 				break;
-			case 5: 
+			case 6: 
 				//"6) Quit"););
 				break;
 			default:
