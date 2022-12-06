@@ -64,5 +64,22 @@
 			The user must enter a number 1-6. If the user enters invalid input, print an error message and show the main menu again to take in a new input.*/ 
 
 		}
-
+		public addEntry() {
+			
 }
+		public removeEntry() {
+			
+		}
+		public searchEntry() {
+			
+		}
+		public printAddressBook() {
+			
+		}
+		public deleteBook() {
+			
+		}
+		public quit() {
+			quit())
+		}
+	}
