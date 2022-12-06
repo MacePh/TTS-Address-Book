@@ -73,10 +73,13 @@
 		public int k = contactList.size() + 1;
 		
 		
-		}
+		
 		public addEntry() {
-			Contact k = new Contact(Contact.getFName(), "Ngo", "(333)333-3333", "aaaaaaaaaa@aaaaa.aaa");
-			this.contactList.add(k);
+			
+			System.out.println("Enter first name");
+			println();
+			Contact k = new Contact(Contact.setFName(String firstN), Contact.setLName(String lastN),setPhoneN(String number), setEmail(String email));
+			contactList.add(k);
 }
 		public removeEntry() {
 			
