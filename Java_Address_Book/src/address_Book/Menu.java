@@ -4,18 +4,13 @@
 	import java.util.Scanner;
 
 	public class Menu {
-//Create Address Book; Empty
+
 		
-		public static ArrayList<Contact> contactList  = new ArrayList<>();
 
 		
 		public static void main(String[] args) {
-			goToMenu();
-		}
-			
-			
-			public static void goToMenu() {
-			try(Scanner input = new Scanner(System.in)){  // Create a Scanner object
+			Scanner input = new Scanner(System.in);  // Create a Scanner object
+			printBars(2);
 
 			System.out.println("What action would you like to perform?");
 			System.out.println("");
@@ -31,44 +26,54 @@
 			System.out.println("");
 			System.out.println("6) Quit");
 			System.out.println("");
-			System.out.println("Please enter a number 1-6 to make your selection.");		
+			System.out.println("Please enter a number 1-6 to make your selection.");	
+			printBars(2);
 			int userChoice = input.nextInt();	
-		//passing variable to the switch
-//			
+//		//passing variable to the switch
+////			
 			switch (userChoice)
 			{
 //			//comparing value of variable against each case
 			case 1:
 				//execute "1)
-				addEntry();
+				AddressBook.addEntry(input);
 				break;
 			case 2:
-//				// execute "2) Remove an entry");
-				removeEntry();
+				// execute "2) Remove an entry");
+				AddressBook.removeEntry(input);
 				break;
 			case 3: 
 				//"3) Search for a specific entry");
-				searchEntry();
+				AddressBook.searchEntry(input);
 				break;
 			case 4:
 				//"4) Print Address Book");
-				printAddressBook();
+				AddressBook.printAddressBook();
 				break;
 			case 5:
 				//"5) Delete Book");
-				deleteBook();
+				AddressBook.deleteBook(input);
 				break;
 			case 6: 
 				//quit
-				quit();
+				AddressBook.quit();
 				break;
 			default:
 		          System.out.println("Invalid Input!");
 		          }
 			}
-			
+		private static void printBar() {
+		    System.out.println("===========================================");
 		}
-	
+		private static void printBars(int numBars){
+		    for (int i = 0; i < numBars ; i++) {
+		        printBar();
+		    }
+		}
+		}
+			
+			
+		
 		
 			
 //			/*Starting the Program 
@@ -86,77 +91,4 @@
 //		//Asks user for Contact details
 
 			
-		public static void addEntry() {
-			try (Scanner input = new Scanner(System.in)) {
-				printBars(2);
-				System.out.println("Enter first name");
-				String firstName = input.next();
-//				Contact.setFirstName(input.next());
-				System.out.println("Enter last name");
-				String lastName = input.next();
-				System.out.println("Enter phone number");
-				String phoneNumber = input.next();
-				System.out.println("Enter email address.");
-				String email = input.next();
-				
-				 Contact k = new Contact(firstName, lastName,phoneNumber, email);
-				contactList.add(k);
-			}
-			goToMenu();
-//			System.out.print(contactList);
-		}
-
-		public static void removeEntry() {
-			printAddressBook();
-				try (Scanner input = new Scanner(System.in)) {
-					System.out.println("Index values start at 0. \n which one do you want to delete?");
-					contactList.remove(input.nextInt());	
-				}
-				printAddressBook();
-				System.out.println("Your welcome!");
-				goToMenu();
-		}
-
-		public static void searchEntry() {
-			System.out.println("Honestly, search is over-rated...");
-			goToMenu();
-		}
-		public static void printAddressBook() {
-			ListIterator<Contact> litr = contactList.listIterator();
-			while (litr.hasNext()) {
-				System.out.print(litr.next());
-		}
-			goToMenu();
-		}
-		public static void deleteBook() {
-			try (Scanner input = new Scanner(System.in)) {
-			System.out.println("Delete all our hard work?\n 'y': I'm a jerk! \n 'n': whoops didn't meant to.");
-			String userInput = input.next();
-			
-			if (userInput.equalsIgnoreCase("y")) {
-					System.out.println("Seriously!.....");
-					contactList.clear();
-				} 
-			else if(userInput.equalsIgnoreCase("n")) {
-					System.out.println("Thank you!");
-				}
-		}
-			goToMenu();
-		}
 		
-		public static void quit() {
-			System.exit(0);
-		}
-		
-			    
-	    private static void printBars(int numBars){
-	        for (int i = 0; i < numBars ; i++) {
-	            printBar();
-	        }
-	    }
-
-	    private static void printBar() {
-	        System.out.println("===========================================");
-	    }
-}
-	
