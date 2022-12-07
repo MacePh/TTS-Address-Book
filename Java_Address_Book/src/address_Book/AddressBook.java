@@ -6,9 +6,9 @@ import java.util.Scanner;
 
 public class AddressBook {
 	//Create Address Book; Empty
-	public static ArrayList<Contact> contactList  = new ArrayList<>();
+	private ArrayList<Contact> contactList  = new ArrayList<>();
 
-	public static void addEntry(Scanner input) {
+	public  void addEntry(Scanner input) {
 //		printBars(2);
 		System.out.println("Enter first name");
 		String firstName = input.next();
@@ -23,7 +23,7 @@ public class AddressBook {
 		contactList.add(k);
 		System.out.println(k);
 //		System.out.print(contactList);
-		printBars(1);
+		Menu.printBars(1);
 //		pauseForInput();
 //		goToMenu();
 	}
@@ -33,7 +33,7 @@ public class AddressBook {
 
 
 
-public static void removeEntry(Scanner input) {
+public  void removeEntry(Scanner input) {
 	printAddressBook();
 		
 	System.out.println("Index values start at 0. \n which one do you want to delete?");
@@ -43,14 +43,14 @@ public static void removeEntry(Scanner input) {
 //		goToMenu();
 }
 
-public static void searchEntry(Scanner input) {
-	printBars(2);
+public  void searchEntry(Scanner input) {
+	Menu.printBars(2);
 	System.out.println("Honestly, search is over-rated...");
-	printBars(3);
+	Menu.printBars(3);
 //	pauseForInput();
 //	goToMenu();
 }
-public static void printAddressBook() {
+public  void printAddressBook() {
 	ListIterator<Contact> litr = contactList.listIterator();
 	while (litr.hasNext()) {
 		System.out.print(litr.next());
@@ -59,7 +59,7 @@ public static void printAddressBook() {
 }
 
 
-public static void deleteBook(Scanner input) {
+public  void deleteBook(Scanner input) {
 
 	System.out.println("Delete all our hard work?\n 'y': I'm a jerk! \n 'n': whoops didn't meant to.");
 	String userInput = input.next();
@@ -74,7 +74,7 @@ public static void deleteBook(Scanner input) {
 //	goToMenu();
 }
 
-public static void quit() {
+public  void quit() {
 	System.exit(0);
 }
 
@@ -90,4 +90,3 @@ public static void quit() {
 }
 
 
-}
