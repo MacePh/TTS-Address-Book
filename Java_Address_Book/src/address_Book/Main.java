@@ -16,7 +16,7 @@ public class Main {
 		Menu.contactList.add(b);
 		Menu.contactList.add(c);
 		Menu.goToMenu();
-		Scanner input = new Scanner(System.in);  // Create a Scanner object
+	
 //		ArrayList<Contact> contactList = new ArrayList<>();
 		
 //		Menu.addEntry();
