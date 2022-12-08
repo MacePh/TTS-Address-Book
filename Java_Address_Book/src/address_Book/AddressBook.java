@@ -3,6 +3,7 @@ package address_Book;
 import java.util.ArrayList;
 import java.util.ListIterator;
 import java.util.Scanner;
+import java.util.regex.*;
 
 public class AddressBook {
 	//Create Address Book; Empty
@@ -59,31 +60,34 @@ public class AddressBook {
 				waitingForPhoneNumber = false;
 			} else {
 				System.out.println("Please enter a response that is three letters or longer.");
-			}
+			}}}
 		}
 		
 		
 		
 		//email
 		//validate
-		class emailValidate {
-			static boolean isValid (String email) {
+		boolean isValid(String email) { 
 				String regex = "^[a-zA-Z0-9_!#$%&’*+/=?`{|}~^-]+(?:\\\\.[a-zA-Z0-9_!#$%&’*+/=?`{|}~^-]+)*@[a-zA-Z0-9-]+(?:\\\\.[a-zA-Z0-9-]+)*$";
 				return email.matches(regex);
 			}
-		}
 		
-		//email
-		boolean waitingForEmail = true;
+		boolean waitingForEmail = true; {
 		while (waitingForEmail) {
+			
 			System.out.println("Enter email address");
+			Scanner input;
 			String correo = input.nextLine();
-			if (isValid (email)) == true) {
+			if (isValid (email) == true) {
 				correo = email;
 				waitingForEmail = false;
 			} else {
 				System.out.println("Please enter a valid email address.");
-		}}}}
+		}}
+	
+
+		//email
+		
 	
 //	//	System.out.println("Enter first name");
 //	//	String firstName = input.next();
@@ -150,12 +154,9 @@ public  void deleteBook(Scanner input) {
 //	goToMenu();
 }
 
-public  void quit() {
+public void quit() {
 	System.exit(0);
-}
-
-	    
-
+}	
 //private static void pauseForInput(Scanner input) {
 //    System.out.println("<Press Enter to continue...>");
 //    input.nextLine();
@@ -163,6 +164,5 @@ public  void quit() {
 
 
 
-}
 
-
+}}
