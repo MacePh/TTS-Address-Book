@@ -69,7 +69,7 @@ public class AddressBook {
 		while (waitingForEmail) {
 			System.out.println("Enter email address");
 			String correo = input.nextLine();
-			if (correo.length() > 6) {
+			if (email.length()>6) {
 				correo = email;
 				waitingForEmail = false;
 			} else {
