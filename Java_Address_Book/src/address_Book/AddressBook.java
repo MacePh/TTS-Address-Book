@@ -120,7 +120,7 @@ public class AddressBook {
 			ArrayList<Contact> contactList2 = (ArrayList<Contact>) readStream.readObject();
 			readStream.close();
 
-			System.out.println(contactList2.toString());
+			System.out.println(contactList.toString());
 		} catch (IOException | ClassNotFoundException e) {
 			e.printStackTrace();
 		}
