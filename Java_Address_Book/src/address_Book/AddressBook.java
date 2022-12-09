@@ -50,6 +50,7 @@ public class AddressBook {
 			}
 		}
 		
+		
 		//phone number
 		boolean waitingForPhoneNumber = true;
 		while (waitingForPhoneNumber) {
@@ -60,30 +61,36 @@ public class AddressBook {
 				waitingForPhoneNumber = false;
 			} else {
 				System.out.println("Please enter a response that is three letters or longer.");
-			}}}
+			}
+			}
+		boolean waitingForEmail = true; 
+		while (waitingForEmail) {
+			
+			System.out.println("Enter email address");
+			
+			String correo = input.nextLine();
+			
+			if (isValid (email) == true) {
+				correo = email;
+				waitingForEmail = false;
+			} else {
+				System.out.println("Please enter a valid email address.");
+		}
+			}
+				}
 		}
 		
 		
 		
 		//email
 		//validate
-		boolean isValid(String email) { 
+		public boolean isValid(String email) { 
 				String regex = "^[a-zA-Z0-9_!#$%&’*+/=?`{|}~^-]+(?:\\\\.[a-zA-Z0-9_!#$%&’*+/=?`{|}~^-]+)*@[a-zA-Z0-9-]+(?:\\\\.[a-zA-Z0-9-]+)*$";
 				return email.matches(regex);
 			}
 		
-		boolean waitingForEmail = true; {
-		while (waitingForEmail) {
-			
-			System.out.println("Enter email address");
-			Scanner input;
-			String correo = input.nextLine();
-			if (isValid (email) == true) {
-				correo = email;
-				waitingForEmail = false;
-			} else {
-				System.out.println("Please enter a valid email address.");
-		}}
+		
+		
 	
 
 		//email
@@ -113,7 +120,7 @@ public class AddressBook {
 
 
 
-public  void removeEntry(Scanner input) {
+public void removeEntry(Scanner input) {
 	printAddressBook();
 		
 	System.out.println("Index values start at 0. \n which one do you want to delete?");
@@ -123,7 +130,7 @@ public  void removeEntry(Scanner input) {
 //		goToMenu();
 }
 
-public  void searchEntry(Scanner input) {
+public void searchEntry(Scanner input) {
 	Menu.printBars(2);
 	System.out.println("Honestly, search is over-rated...");
 	Menu.printBars(3);
@@ -165,4 +172,4 @@ public void quit() {
 
 
 
-}}
+}
