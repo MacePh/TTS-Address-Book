@@ -72,11 +72,11 @@ public class AddressBook {
 		boolean waitingForEmail = true; 
 		while (waitingForEmail) {
 			
-			System.out.println("Enter email address");
+			System.out.println("Enter email address :");
 			
 			String correo = s.nextLine();
 			
-			if (isValid (email) == true) {
+			if (isValid (correo) == true) {
 				correo = email;
 				waitingForEmail = false;
 			} else {
@@ -91,7 +91,7 @@ public class AddressBook {
 		//email
 		//validate
 		public boolean isValid(String email) { 
-				String regex = "^[a-zA-Z0-9_!#$%&’*+/=?`{|}~^-]+(?:\\\\.[a-zA-Z0-9_!#$%&’*+/=?`{|}~^-]+)*@[a-zA-Z0-9-]+(?:\\\\.[a-zA-Z0-9-]+)*$";
+//				String regex = "^[a-zA-Z0-9_!#$%&’*+/=?`{|}~^-]+(?:\\\\.[a-zA-Z0-9_!#$%&’*+/=?`{|}~^-]+)*@[a-zA-Z0-9-]+(?:\\\\.[a-zA-Z0-9-]+)*$";
 				return email.matches(regex);
 			}
 		
