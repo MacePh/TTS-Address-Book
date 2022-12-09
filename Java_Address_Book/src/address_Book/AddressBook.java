@@ -60,10 +60,23 @@ public class AddressBook {
 				digits = phoneNumber;
 				waitingForPhoneNumber = false;
 			} else {
-				System.out.println("Please enter a response that is three letters or longer.");
+				System.out.println("Please enter a response that is 6 numbers or longer.");
 			}
 			}
-		boolean waitingForEmail = true; 
+		
+		
+		boolean waitingForEmail = true;
+		while (waitingForEmail) {
+			System.out.println("Enter email address");
+			String correo = input.nextLine();
+			if (correo.length() > 6) {
+				correo = email;
+				waitingForEmail = false;
+			} else {
+				System.out.println("Please enter a response that is 6 letters or longer.");
+			}
+			}
+		/*boolean waitingForEmail = true; 
 		while (waitingForEmail) {
 			
 			System.out.println("Enter email address");
@@ -75,17 +88,16 @@ public class AddressBook {
 				waitingForEmail = false;
 			} else {
 				System.out.println("Please enter a valid email address.");
-		}
+		}*/
 			}
 				}
-		}
 		
 		
 		
 		//email
 		//validate
 		public boolean isValid(String email) { 
-				String regex = "^[a-zA-Z0-9_!#$%&’*+/=?`{|}~^-]+(?:\\\\.[a-zA-Z0-9_!#$%&’*+/=?`{|}~^-]+)*@[a-zA-Z0-9-]+(?:\\\\.[a-zA-Z0-9-]+)*$";
+				String regex = ".+\\@.+\\..+";
 				return email.matches(regex);
 			}
 		
