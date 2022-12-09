@@ -24,8 +24,7 @@ public class AddressBook {
 		System.out.println(k);
 //		System.out.print(contactList);
 		Menu.printBars(1);
-//		pauseForInput();
-//		goToMenu();
+
 	}
 
 	
@@ -40,44 +39,56 @@ public  void removeEntry(Scanner input) {
 	contactList.remove(input.nextInt());	
 	printAddressBook();
 	System.out.println("Your welcome!");
-//		goToMenu();
+
 }
 
 public  void searchEntry(Scanner input) {
-	Menu.printBars(2);
-	System.out.println("Honestly, search is over-rated...");
-	Menu.printBars(3);
-//	pauseForInput();
-//	goToMenu();
-}
+	printSearchOptions();
+	//Search for a colleague information
+	public int searchEntry(String s) {
+		for(int i= 0;i< contactList.size(); i++) {
+			
+			if(contactList.get(i).getFirstName().equals(s) || contactList.get(i).getLastName().equals(s) || contactList.get(i).getPhoneNumber().equals(s)|| contactList.get(i).getEmail().equals(s)) { 
+				System.out.println("found" + s);
+				return i;
+			}
+	
+}}
+
 public  void printAddressBook() {
 	ListIterator<Contact> litr = contactList.listIterator();
 	while (litr.hasNext()) {
 		System.out.print(litr.next());
 }
-//	goToMenu();
+
 }
 
 
 public  void deleteBook(Scanner input) {
 
-	System.out.println("Delete all our hard work?\n 'y': I'm a jerk! \n 'n': whoops didn't meant to.");
+	System.out.println("Delete ENTIRE address book? ?\n 'y': Delete it. \n 'n': No, keep it.");
 	String userInput = input.next();
 	
 	if (userInput.equalsIgnoreCase("y")) {
-			System.out.println("Seriously!.....");
+			System.out.println("Address Book Deleted.");
 			contactList.clear();
 		} 
 	else if(userInput.equalsIgnoreCase("n")) {
 			System.out.println("Thank you!");
 	}
-//	goToMenu();
+
 }
 
-public  void quit() {
-	System.exit(0);
-}
-
+	public static void printSearchOptions() {
+			System.out.println("Choose");
+			System.out.println("===========================================");
+			System.out.println("1) First name");
+			System.out.println("2) Last name");
+			System.out.println("3) Phone Number");
+			System.out.println("4) Email address");
+			System.out.println("===========================================");
+			System.out.println("Enter 1-4 so select the search field.");	
+		}
 	    
 
 //private static void pauseForInput(Scanner input) {

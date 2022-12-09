@@ -11,34 +11,15 @@
 			Scanner input = new Scanner(System.in);  // Create a Scanner object
 			AddressBook addressbook = new AddressBook();
 			
-			
+//			While Loops Keeps "Main menu" active until user chooses to exit
 			Boolean continueBool = true;
 			while(continueBool) {
 				
 			//prompt message(input)
-			printBars(2);
-
-			System.out.println("What action would you like to perform?");
-			System.out.println("");
-			System.out.println("1) Add an entry");
-			System.out.println("");
-			System.out.println("2) Remove an entry");
-			System.out.println("");
-			System.out.println("3) Search for a specific entry");
-			System.out.println("");
-			System.out.println("4) Print Address Book");
-			System.out.println("");
-			System.out.println("5) Delete Book");
-			System.out.println("");
-			System.out.println("6) Quit");
-			System.out.println("");
-			System.out.println("Please enter a number 1-6 to make your selection.");	
-			printBars(2);
-			;
-			
+				printMainMenuOptions();
 			int userChoice = input.nextInt();	
-//		//passing variable to the switch
-////		
+		//passing variable to the switch
+		
 			
 			switch (userChoice)
 			{
@@ -65,23 +46,33 @@
 				break;
 			case 6: 
 				//quit
-				addressbook.quit();
+			
 				System.out.println("Goodbye");
 				continueBool = false; 
 				break;
-				
 				
 			default:
 		          System.out.println("Invalid Input!");
 		          }
 			
 			}
-			
-			
-			
 			System.exit(0);
-
 			}
+		
+//		Esthetics
+		public static void printMainMenuOptions() {
+			System.out.println("What action would you like to perform?");
+			System.out.println("===========================================");
+			System.out.println("1) Add an entry");
+			System.out.println("2) Remove an entry");
+			System.out.println("3) Search for a specific entry");
+			System.out.println("4) Print Address Book");
+			System.out.println("5) Delete Book");
+			System.out.println("6) Quit");
+			System.out.println("===========================================");
+			System.out.println("Please enter a number 1-6 to make your selection.");	
+			}
+		
 		public static void printBar() {
 		    System.out.println("===========================================");
 		}
@@ -91,39 +82,11 @@
 		    }
 		}
 		public int promptMessage(Scanner input) {
-			
-//			//prompt message(input)
-//			printBars(2);
-//
-//			System.out.println("What action would you like to perform?");
-//			System.out.println("");
-//			System.out.println("1) Add an entry");
-//			System.out.println("");
-//			System.out.println("2) Remove an entry");
-//			System.out.println("");
-//			System.out.println("3) Search for a specific entry");
-//			System.out.println("");
-//			System.out.println("4) Print Address Book");
-//			System.out.println("");
-//			System.out.println("5) Delete Book");
-//			System.out.println("");
-//			System.out.println("6) Quit");
-//			System.out.println("");
-//			System.out.println("Please enter a number 1-6 to make your selection.");	
-//			printBars(2);
-//			;
-//			
-//			int userChoice = input.nextInt();	
+
 			return (0);
 			
 		}
-		
-		
-		
-		
-		
-		
-}
+	}
 			
 			
 		

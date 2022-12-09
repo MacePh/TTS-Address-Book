@@ -14,10 +14,10 @@ public class Main {
 		Contact a = new Contact("Phi", "Ngo", "(333)333-3333", "aaaaaaaaaa@aaaaa.aaa");
 		Contact b = new Contact("Mace", "Phillips", "(111)111-1111", "bbbbb@bbbbb.bbb");
 		Contact c = new Contact("Claire", "Novak", "(222)222-2222", "ccccccccc@cccccc.ccc");
-		Menu.contactList.add(a);
-		Menu.contactList.add(b);
-		Menu.contactList.add(c);
-		Menu.goToMenu();
+//		Menu.contactList.add(a);
+//		Menu.contactList.add(b);
+//		Menu.contactList.add(c);
+	
 	
 //		ArrayList<Contact> contactList = new ArrayList<>();
 		
