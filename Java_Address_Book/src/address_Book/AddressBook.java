@@ -19,7 +19,7 @@ public class AddressBook {
 	Scanner s = new Scanner(System.in);
 	
 	
-	public  void addEntry(Scanner input) {
+	public  void addEntry() {
 //		
 		// all variables for loops
 				boolean keepGoing = true;
@@ -28,18 +28,14 @@ public class AddressBook {
 					String lastName = "";
 					String phoneNumber = "";
 					String email = "";
-						
-		
-		//printBars(2);
-		
-
+	
 		// while loops with if/else
 		
 		//firstName
 		boolean waitingForFirstName = true;
 		while (waitingForFirstName) {
 			System.out.println("Enter first name");
-			String fName = input.nextLine();
+			String fName = s.nextLine();
 			if (fName.length() > 2) {
 				fName = firstName;
 				waitingForFirstName = false;
@@ -51,7 +47,7 @@ public class AddressBook {
 		boolean waitingForLastName = true;
 		while (waitingForLastName) {
 			System.out.println("Enter last name");
-			String lName = input.nextLine();
+			String lName = s.nextLine();
 			if (lName.length() > 2) {
 				lName = lastName;
 				waitingForLastName = false;
@@ -65,12 +61,12 @@ public class AddressBook {
 		boolean waitingForPhoneNumber = true;
 		while (waitingForPhoneNumber) {
 			System.out.println("Enter phone number");
-			String digits = input.nextLine();
+			String digits = s.nextLine();
 			if (digits.length() > 6) {
 				digits = phoneNumber;
 				waitingForPhoneNumber = false;
 			} else {
-				System.out.println("Please enter a response that is three letters or longer.");
+				System.out.println("Please enter phone # with 7 digits or more.");
 			}
 			}
 		boolean waitingForEmail = true; 
@@ -78,7 +74,7 @@ public class AddressBook {
 			
 			System.out.println("Enter email address");
 			
-			String correo = input.nextLine();
+			String correo = s.nextLine();
 			
 			if (isValid (email) == true) {
 				correo = email;
