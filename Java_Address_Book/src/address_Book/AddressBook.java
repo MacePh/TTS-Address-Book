@@ -6,85 +6,97 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.ListIterator;
 import java.util.Scanner;
 
 public class AddressBook {
-
 	private static final ArrayList<Contact> contactList2 = null;
+	
 	// Create Address Book; Empty
 	private ArrayList<Contact> contactList = new ArrayList<>();
+	Iterator<Contact> i = contactList.iterator();
+	Scanner s = new Scanner(System.in);
 
-	public void addEntry(Scanner input) {
-//		printBars(2);
-		System.out.println("Enter first name");
-		String firstName = input.next();
-//		Contact.setFirstName(input.next());
-		System.out.println("Enter last name");
-		String lastName = input.next();
-		System.out.println("Enter phone number");
-		String phoneNumber = input.next();
-		System.out.println("Enter email address.");
-		String email = input.next();
-		Contact k = new Contact(firstName, lastName, phoneNumber, email);
-		contactList.add(k);
-		saveContact(contactList);
-		System.out.println(k);
-//		System.out.print(contactList);
-		Menu.printBars(1);
-//		pauseForInput();
-//		goToMenu();
-
+	public  void addEntry() {
+		System.out.print("Enter first name :");
+		String firstName = s.next();
+		System.out.print("Enter last name :");
+		String lastName = s.next();
+		System.out.print("Enter phone number :");
+		String phoneNumber = s.next();
+		System.out.print("Enter email address :");
+		String email = s.next();
+		contactList.add(new Contact(firstName, lastName,phoneNumber, email));
+		
+		System.out.println("=+=+=+=+=+=+=+=+ADDED=+=+=+=+=+=+=+=+=+=");
 	}
-
-//	System.out.print(contactList);
-
-	public void removeEntry(Scanner input) {
-		printAddressBook();
-
-		System.out.println("Index values start at 0. \n which one do you want to delete?");
-		contactList.remove(input.nextInt());
-		saveContact(contactList);
-		printAddressBook();
-		System.out.println("Your welcome!");
-//		goToMenu();
-	}
-
-	public void searchEntry(Scanner input) {
-		Menu.printBars(2);
-		System.out.println("Honestly, search is over-rated...");
-		Menu.printBars(3);
-//	pauseForInput();
-//	goToMenu();
-	}
-
-	public void printAddressBook() {
-		ListIterator<Contact> litr = contactList.listIterator();
-		while (litr.hasNext()) {
-			System.out.print(litr.next());
+	
+	public  void removeEntry() {
+	boolean found=false;
+	printAddressBook();
+	String fDel= s.next();
+	Iterator<Contact> i = contactList.iterator();
+	while(i.hasNext()) {
+		Contact c = (Contact) i.next();
+		if(c.getFirstName().equals(fDel)) {
+			i.remove();
+			found = true;
 		}
-		ArrayList<Contact> list = readList(contactList);
-		System.out.println(list);
 	}
+	if(!found) {
+		System.out.println("=+=+=+=+=+=+=+=+NOT=FOUND=+=+=+=+=+=+=+=+=+=\n");
 
-	public void deleteBook(Scanner input) {
-
-		System.out.println("Delete all our hard work?\n 'y': I'm a jerk! \n 'n': whoops didn't meant to.");
-		String userInput = input.next();
-
-		if (userInput.equalsIgnoreCase("y")) {
-			System.out.println("Seriously!.....");
-			contactList.clear();
-		} else if (userInput.equalsIgnoreCase("n")) {
-			System.out.println("Thank you!");
+	}
+	else {
+		
+	}
+	System.out.println("=+=+=+=+=+=+=+=+=+DELETED=+=+=+=+=+=+=+=\n");
+	}
+		
+	public  void searchEntry() {
+	boolean found=false;
+	System.out.println("Enter First Name to search");
+	String fSearch= s.nextLine();
+	i = contactList.iterator();
+	while(i.hasNext()) {
+		Contact c = i.next();
+		if(c.getFirstName().equals(fSearch)) {
+			System.out.println("Found: "+c);
+			found = true;
 		}
-//	goToMenu();
+	}if(!found) {
+		System.out.println("=+=+=+=+=+=+=CONTACT=NOT=FOUND=+=+=+=+=+=+=\n");
 	}
-
-	public void quit() {
-		System.exit(0);
+	System.out.println("=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=\n");
 	}
+	
+	public  void printAddressBook() {
+	System.out.println("Address book contains :");
+	ListIterator<Contact> litr = contactList.listIterator();
+	while (litr.hasNext()) {
+		System.out.print(litr.next());
+}
+	ArrayList<Contact> list = readList(contactList);
+	System.out.println(list);
+	System.out.println("=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=\n");
+}
+	
 
+ 
+	public  void deleteBook() {
+		System.out.println("Delete ENTIRE address book? ?\n 'y': Delete it. \n 'n': No, keep it.");
+		String userInput = s.nextLine();
+			if (userInput.equalsIgnoreCase("y")) {
+			System.out.println("=+=+=+=+=+=+ADDRESS+BOOK=DELETED=+=+=+=+=+=\n");
+				contactList.clear();
+			} 	else if(userInput.equalsIgnoreCase("n")) {
+				System.out.println("=+=+=+=+=+=+NOT+DELETED+=+=+=+=+=+=+=+=+=+=\n");
+			}
+			System.out.println("=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=\n");
+			}
+		
+	
 	public void saveContact(ArrayList<Contact> contactList) {
 		try {
 			FileOutputStream writeData = new FileOutputStream("contactList.ser");
@@ -115,9 +127,7 @@ public class AddressBook {
 		return contactList2;
 	}
 
-//private static void pauseForInput(Scanner input) {
-//    System.out.println("<Press Enter to continue...>");
-//    input.nextLine();
-//}
 
-}
+		} 
+
+
