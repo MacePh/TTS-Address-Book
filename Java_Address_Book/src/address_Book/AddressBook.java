@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.ListIterator;
 import java.util.Scanner;
-import java.util.regex.*;
+
 
 public class AddressBook {
 	//Create Address Book; Empty
@@ -20,81 +20,21 @@ public class AddressBook {
 	
 	
 	public  void addEntry() {
-//		
-		// all variables for loops
-				boolean keepGoing = true;
-				while (keepGoing) {
-					String firstName = "";
-					String lastName = "";
-					String phoneNumber = "";
-					String email = "";
+		
+		System.out.print("Enter first name :");
+		String firstName = s.next();
+//		Contact.setFirstName(input.next());
+		System.out.print("Enter last name :");
+		String lastName = s.next();
+		System.out.print("Enter phone number :");
+		String phoneNumber = s.next();
+		System.out.print("Enter email address :");
+		String email = s.next();
+		contactList.add(new Contact(firstName, lastName,phoneNumber, email));
+		
+		System.out.println("=+=+=+=+=+=+=+=+ADDED=+=+=+=+=+=+=+=+=+=");
+	}		
 	
-		// while loops with if/else
-		
-		//firstName
-		boolean waitingForFirstName = true;
-		while (waitingForFirstName) {
-			System.out.println("Enter first name");
-			String fName = s.nextLine();
-			if (fName.length() > 2) {
-				fName = firstName;
-				waitingForFirstName = false;
-			} else {
-				System.out.println("Please enter a response that is three letters or longer.");
-			}
-		}
-		//lastName
-		boolean waitingForLastName = true;
-		while (waitingForLastName) {
-			System.out.println("Enter last name");
-			String lName = s.nextLine();
-			if (lName.length() > 2) {
-				lName = lastName;
-				waitingForLastName = false;
-			} else {
-				System.out.println("Please enter a response that is three letters or longer.");
-			}
-		}
-		
-		
-		//phone number
-		boolean waitingForPhoneNumber = true;
-		while (waitingForPhoneNumber) {
-			System.out.println("Enter phone number");
-			String digits = s.nextLine();
-			if (digits.length() > 6) {
-				digits = phoneNumber;
-				waitingForPhoneNumber = false;
-			} else {
-				System.out.println("Please enter phone # with 7 digits or more.");
-			}
-			}
-		boolean waitingForEmail = true; 
-		while (waitingForEmail) {
-			
-			System.out.println("Enter email address :");
-			
-			String correo = s.nextLine();
-			
-			if (isValid (correo) == true) {
-				correo = email;
-				waitingForEmail = false;
-			} else {
-				System.out.println("Please enter a valid email address.");
-		}
-			}
-				}
-		}
-		
-		
-		
-		//email
-		//validate
-		public boolean isValid(String email) { 
-//				String regex = "^[a-zA-Z0-9_!#$%&’*+/=?`{|}~^-]+(?:\\\\.[a-zA-Z0-9_!#$%&’*+/=?`{|}~^-]+)*@[a-zA-Z0-9-]+(?:\\\\.[a-zA-Z0-9-]+)*$";
-				return email.matches(regex);
-			}
-		
 	public  void removeEntry() {
 	boolean found=false;
 	printAddressBook();
@@ -191,4 +131,67 @@ public  void printAddressBook() {
 		}
 		return contactList2;
 	}
+//	Could't get the variables to add to the Arraylist. input validation does work though.
+//	public  void addEntry() {
+////	
+//	// all variables for loops
+////boolean keepGoing = true;
+////while (keepGoing) {
+//				String firstName="";
+//				String lastName = "";
+//				String phoneNumber="";
+////				String email;
+//
+//			
+//	//firstName
+//	boolean waitingForFirstName = true;
+//	while (waitingForFirstName) {
+//		System.out.println("Enter first name");
+//		String fName = s.nextLine();
+//		if (fName.length() > 2) {
+//			fName = firstName;
+//			waitingForFirstName = false;
+//		} else {
+//			System.out.println("Please enter a response that is three letters or longer.");
+//		}
+//	}
+//	//lastName
+//	boolean waitingForLastName = true;
+//	while (waitingForLastName) {
+//		System.out.println("Enter last name");
+//		String lName = s.nextLine();
+//		if (lName.length() > 2) {
+//			lName = lastName;
+//			waitingForLastName = false;
+//		} else {
+//			System.out.println("Please enter a response that is three letters or longer.");
+//		}
+//	}
+//	
+//	
+//	//phone number
+//	boolean waitingForPhoneNumber = true;
+//	while (waitingForPhoneNumber) {
+//		System.out.println("Enter phone number");
+//		String digits = s.nextLine();
+//		if (digits.length() > 6) {
+//			digits = phoneNumber;
+//			waitingForPhoneNumber = false;
+//		} else {
+//
+//			System.out.println("Please enter phone # with 7 digits or more.");
+//
+//			}
+//		
+//		}
+//	
+//		System.out.println("Enter email address");
+//		String email = s.nextLine();
+//		
+//		
+//		contactList.add(new Contact(firstName, lastName,phoneNumber, email));
+//		
+//		System.out.println("=+=+=+=+=+=+=+=+ADDED=+=+=+=+=+=+=+=+=+=");
+////		keepGoing = false;
+//}
 } 
