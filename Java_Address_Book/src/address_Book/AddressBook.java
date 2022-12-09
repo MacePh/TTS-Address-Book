@@ -11,24 +11,33 @@ import java.util.ListIterator;
 import java.util.Scanner;
 
 public class AddressBook {
+	public static ArrayList<Contact> readList() {
+		try {
+			FileInputStream readData = new FileInputStream("contactList.ser");
+
+			ObjectInputStream readStream = new ObjectInputStream(readData);
+
+			ArrayList<Contact> contactList = (ArrayList<Contact>) readStream.readObject();
+			readStream.close();
+
+		return contactList;
+		} catch (IOException | ClassNotFoundException e) {
+			e.printStackTrace();
+		}
+		return contactList;
+	
+	}
+
 	//Create Address Book; Empty
-	private ArrayList<Contact> contactList  = new ArrayList<>();
+//	private static final ArrayList<Contact> contactList2 = readList() ;
+	private static  ArrayList<Contact> contactList  = readList();
 	Iterator<Contact> i = contactList.iterator();
 	Scanner s = new Scanner(System.in);
 
-	public  void addEntry() {
-		
-		System.out.print("Enter first name :");
-		String firstName = s.next();
-
-	private static final ArrayList<Contact> contactList2 = null;
-	// Create Address Book; Empty
-	private ArrayList<Contact> contactList = new ArrayList<>();
-
-	public void addEntry(Scanner input) {
+	public void addEntry() {
 //		printBars(2);
-		System.out.println("Enter first name");
-		String firstName = input.next();
+		System.out.println("Enter first name:");
+		String firstName = s.next();
 //		Contact.setFirstName(input.next());
 		System.out.print("Enter last name :");
 		String lastName = s.next();
@@ -37,6 +46,7 @@ public class AddressBook {
 		System.out.print("Enter email address :");
 		String email = s.next();
 		contactList.add(new Contact(firstName, lastName,phoneNumber, email));
+		saveContact(contactList);
 		
 		System.out.println("=+=+=+=+=+=+=+=+ADDED=+=+=+=+=+=+=+=+=+=");
 	}
@@ -50,6 +60,7 @@ public class AddressBook {
 		Contact c = (Contact) i.next();
 		if(c.getFirstName().equals(fDel)) {
 			i.remove();
+			saveContact(contactList);
 			found = true;
 		}
 	}
@@ -104,7 +115,7 @@ public class AddressBook {
 	System.out.println("=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=\n");
 
 }
-}
+
 
 	public void saveContact(ArrayList<Contact> contactList) {
 		try {
@@ -120,19 +131,5 @@ public class AddressBook {
 		}
 	}
 
-	public ArrayList<Contact> readList(ArrayList<Contact> contactList) {
-		try {
-			FileInputStream readData = new FileInputStream("contactList.ser");
-
-			ObjectInputStream readStream = new ObjectInputStream(readData);
-
-			ArrayList<Contact> contactList2 = (ArrayList<Contact>) readStream.readObject();
-			readStream.close();
-
-			System.out.println(contactList2.toString());
-		} catch (IOException | ClassNotFoundException e) {
-			e.printStackTrace();
-		}
-		return contactList2;
-	}
+}
 
