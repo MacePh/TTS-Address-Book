@@ -26,7 +26,7 @@
 //			//comparing value of variable against each case
 			case 1:
 				//execute "1)
-				addressbook.addEntry();
+				addressbook.addEntry(input);
 				break;
 			case 2:
 				// execute "2) Remove an entry");

@@ -9,29 +9,96 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.ListIterator;
 import java.util.Scanner;
+import java.util.regex.*;
 
 public class AddressBook {
+	//Create Address Book; Empty
 	private static final ArrayList<Contact> contactList2 = null;
-	
-	// Create Address Book; Empty
-	private ArrayList<Contact> contactList = new ArrayList<>();
-	Iterator<Contact> i = contactList.iterator();
+		private ArrayList<Contact> contactList  = new ArrayList<>();
+		Iterator<Contact> i = contactList.iterator();
 	Scanner s = new Scanner(System.in);
-
-	public  void addEntry() {
-		System.out.print("Enter first name :");
-		String firstName = s.next();
-		System.out.print("Enter last name :");
-		String lastName = s.next();
-		System.out.print("Enter phone number :");
-		String phoneNumber = s.next();
-		System.out.print("Enter email address :");
-		String email = s.next();
-		contactList.add(new Contact(firstName, lastName,phoneNumber, email));
-		
-		System.out.println("=+=+=+=+=+=+=+=+ADDED=+=+=+=+=+=+=+=+=+=");
-	}
 	
+	
+	public  void addEntry(Scanner input) {
+//		
+		// all variables for loops
+				boolean keepGoing = true;
+				while (keepGoing) {
+					String firstName = "";
+					String lastName = "";
+					String phoneNumber = "";
+					String email = "";
+						
+		
+		//printBars(2);
+		
+
+		// while loops with if/else
+		
+		//firstName
+		boolean waitingForFirstName = true;
+		while (waitingForFirstName) {
+			System.out.println("Enter first name");
+			String fName = input.nextLine();
+			if (fName.length() > 2) {
+				fName = firstName;
+				waitingForFirstName = false;
+			} else {
+				System.out.println("Please enter a response that is three letters or longer.");
+			}
+		}
+		//lastName
+		boolean waitingForLastName = true;
+		while (waitingForLastName) {
+			System.out.println("Enter last name");
+			String lName = input.nextLine();
+			if (lName.length() > 2) {
+				lName = lastName;
+				waitingForLastName = false;
+			} else {
+				System.out.println("Please enter a response that is three letters or longer.");
+			}
+		}
+		
+		
+		//phone number
+		boolean waitingForPhoneNumber = true;
+		while (waitingForPhoneNumber) {
+			System.out.println("Enter phone number");
+			String digits = input.nextLine();
+			if (digits.length() > 6) {
+				digits = phoneNumber;
+				waitingForPhoneNumber = false;
+			} else {
+				System.out.println("Please enter a response that is three letters or longer.");
+			}
+			}
+		boolean waitingForEmail = true; 
+		while (waitingForEmail) {
+			
+			System.out.println("Enter email address");
+			
+			String correo = input.nextLine();
+			
+			if (isValid (email) == true) {
+				correo = email;
+				waitingForEmail = false;
+			} else {
+				System.out.println("Please enter a valid email address.");
+		}
+			}
+				}
+		}
+		
+		
+		
+		//email
+		//validate
+		public boolean isValid(String email) { 
+				String regex = "^[a-zA-Z0-9_!#$%&’*+/=?`{|}~^-]+(?:\\\\.[a-zA-Z0-9_!#$%&’*+/=?`{|}~^-]+)*@[a-zA-Z0-9-]+(?:\\\\.[a-zA-Z0-9-]+)*$";
+				return email.matches(regex);
+			}
+		
 	public  void removeEntry() {
 	boolean found=false;
 	printAddressBook();
@@ -71,8 +138,9 @@ public class AddressBook {
 	System.out.println("=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=\n");
 	}
 	
-	public  void printAddressBook() {
-	System.out.println("Address book contains :");
+
+public  void printAddressBook() {
+
 	ListIterator<Contact> litr = contactList.listIterator();
 	while (litr.hasNext()) {
 		System.out.print(litr.next());
@@ -111,6 +179,7 @@ public class AddressBook {
 		}
 	}
 
+
 	public ArrayList<Contact> readList(ArrayList<Contact> contactList) {
 		try {
 			FileInputStream readData = new FileInputStream("contactList.ser");
@@ -126,8 +195,4 @@ public class AddressBook {
 		}
 		return contactList2;
 	}
-
-
-		} 
-
-
+} 
