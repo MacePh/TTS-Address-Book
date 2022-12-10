@@ -10,18 +10,33 @@ import java.util.Iterator;
 import java.util.ListIterator;
 import java.util.Scanner;
 
-
 public class AddressBook {
+	public static ArrayList<Contact> readList() {
+		try {
+			FileInputStream readData = new FileInputStream("contactList.ser");
+
+			ObjectInputStream readStream = new ObjectInputStream(readData);
+
+			ArrayList<Contact> contactList = (ArrayList<Contact>) readStream.readObject();
+			readStream.close();
+
+		return contactList;
+		} catch (IOException | ClassNotFoundException e) {
+			e.printStackTrace();
+		}
+		return contactList;
+	
+	}
+
 	//Create Address Book; Empty
-	private static final ArrayList<Contact> contactList2 = null;
-		private ArrayList<Contact> contactList  = new ArrayList<>();
-		Iterator<Contact> i = contactList.iterator();
+//	private static final ArrayList<Contact> contactList2 = readList() ;
+	private static  ArrayList<Contact> contactList  = readList();
+	Iterator<Contact> i = contactList.iterator();
 	Scanner s = new Scanner(System.in);
-	
-	
-	public  void addEntry() {
-		
-		System.out.print("Enter first name :");
+
+	public void addEntry() {
+//		printBars(2);
+		System.out.println("Enter first name:");
 		String firstName = s.next();
 //		Contact.setFirstName(input.next());
 		System.out.print("Enter last name :");
@@ -31,10 +46,11 @@ public class AddressBook {
 		System.out.print("Enter email address :");
 		String email = s.next();
 		contactList.add(new Contact(firstName, lastName,phoneNumber, email));
+		saveContact(contactList);
 		
 		System.out.println("=+=+=+=+=+=+=+=+ADDED=+=+=+=+=+=+=+=+=+=");
-	}		
-	
+	}
+
 	public  void removeEntry() {
 	boolean found=false;
 	printAddressBook();
@@ -44,6 +60,7 @@ public class AddressBook {
 		Contact c = (Contact) i.next();
 		if(c.getFirstName().equals(fDel)) {
 			i.remove();
+			saveContact(contactList);
 			found = true;
 		}
 	}
@@ -74,33 +91,32 @@ public class AddressBook {
 	System.out.println("=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=\n");
 	}
 	
-
-public  void printAddressBook() {
-
+	public  void printAddressBook() {
+	System.out.println("Address book contains :");
 	ListIterator<Contact> litr = contactList.listIterator();
 	while (litr.hasNext()) {
 		System.out.print(litr.next());
 }
-	ArrayList<Contact> list = readList(contactList);
-	System.out.println(list);
 	System.out.println("=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=\n");
 }
-	
-
  
 	public  void deleteBook() {
-		System.out.println("Delete ENTIRE address book? ?\n 'y': Delete it. \n 'n': No, keep it.");
-		String userInput = s.nextLine();
-			if (userInput.equalsIgnoreCase("y")) {
-			System.out.println("=+=+=+=+=+=+ADDRESS+BOOK=DELETED=+=+=+=+=+=\n");
-				contactList.clear();
-			} 	else if(userInput.equalsIgnoreCase("n")) {
-				System.out.println("=+=+=+=+=+=+NOT+DELETED+=+=+=+=+=+=+=+=+=+=\n");
-			}
-			System.out.println("=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=\n");
-			}
-		
+
+	System.out.println("Delete ENTIRE address book? ?\n 'y': Delete it. \n 'n': No, keep it.");
+	String userInput = s.nextLine();
 	
+	if (userInput.equalsIgnoreCase("y")) {
+		System.out.println("=+=+=+=+=+=+ADDRESS+BOOK=DELETED=+=+=+=+=+=\n");
+			contactList.clear();
+		} 
+	else if(userInput.equalsIgnoreCase("n")) {
+		System.out.println("=+=+=+=+=+=+NOT+DELETED+=+=+=+=+=+=+=+=+=+=\n");
+	}
+	System.out.println("=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=\n");
+
+}
+
+
 	public void saveContact(ArrayList<Contact> contactList) {
 		try {
 			FileOutputStream writeData = new FileOutputStream("contactList.ser");
@@ -115,83 +131,5 @@ public  void printAddressBook() {
 		}
 	}
 
+}
 
-	public ArrayList<Contact> readList(ArrayList<Contact> contactList) {
-		try {
-			FileInputStream readData = new FileInputStream("contactList.ser");
-
-			ObjectInputStream readStream = new ObjectInputStream(readData);
-
-			ArrayList<Contact> contactList2 = (ArrayList<Contact>) readStream.readObject();
-			readStream.close();
-
-			System.out.println(contactList.toString());
-		} catch (IOException | ClassNotFoundException e) {
-			e.printStackTrace();
-		}
-		return contactList2;
-	}
-//	Could't get the variables to add to the Arraylist. input validation does work though.
-//	public  void addEntry() {
-////	
-//	// all variables for loops
-////boolean keepGoing = true;
-////while (keepGoing) {
-//				String firstName="";
-//				String lastName = "";
-//				String phoneNumber="";
-////				String email;
-//
-//			
-//	//firstName
-//	boolean waitingForFirstName = true;
-//	while (waitingForFirstName) {
-//		System.out.println("Enter first name");
-//		String fName = s.nextLine();
-//		if (fName.length() > 2) {
-//			fName = firstName;
-//			waitingForFirstName = false;
-//		} else {
-//			System.out.println("Please enter a response that is three letters or longer.");
-//		}
-//	}
-//	//lastName
-//	boolean waitingForLastName = true;
-//	while (waitingForLastName) {
-//		System.out.println("Enter last name");
-//		String lName = s.nextLine();
-//		if (lName.length() > 2) {
-//			lName = lastName;
-//			waitingForLastName = false;
-//		} else {
-//			System.out.println("Please enter a response that is three letters or longer.");
-//		}
-//	}
-//	
-//	
-//	//phone number
-//	boolean waitingForPhoneNumber = true;
-//	while (waitingForPhoneNumber) {
-//		System.out.println("Enter phone number");
-//		String digits = s.nextLine();
-//		if (digits.length() > 6) {
-//			digits = phoneNumber;
-//			waitingForPhoneNumber = false;
-//		} else {
-//
-//			System.out.println("Please enter phone # with 7 digits or more.");
-//
-//			}
-//		
-//		}
-//	
-//		System.out.println("Enter email address");
-//		String email = s.nextLine();
-//		
-//		
-//		contactList.add(new Contact(firstName, lastName,phoneNumber, email));
-//		
-//		System.out.println("=+=+=+=+=+=+=+=+ADDED=+=+=+=+=+=+=+=+=+=");
-////		keepGoing = false;
-//}
-} 
