@@ -4,7 +4,8 @@ import java.io.*;
 
 public class Contact implements Serializable{
 
-	private static final long serialVersionUID = 1L;
+
+	private static final long serialVersionUID = -3267030730305511637L;
 	private String firstName;
 	private String lastName;
 	private String phoneNumber;
@@ -70,7 +71,7 @@ public class Contact implements Serializable{
 	
     @Override
     public String toString() {
-        return  firstName + " " + lastName + "\n" + phoneNumber + "\n" + email +  "\n";
+        return  firstName + " " + lastName + "\n" + phoneNumber + "\n" + email +  "\n\n";
     }
 
 }

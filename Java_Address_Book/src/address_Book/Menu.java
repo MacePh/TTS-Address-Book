@@ -17,34 +17,34 @@
 				
 			//prompt message(input)
 				printMainMenuOptions();
-			int userChoice = input.nextInt();	
+			String userChoice = input.next();	
 		//passing variable to the switch
 		
 			
 			switch (userChoice)
 			{
 //			//comparing value of variable against each case
-			case 1:
+			case "1":
 				//execute "1)
-				addressbook.addEntry();
+				AddressBook.addEntry();
 				break;
-			case 2:
+			case "2":
 				// execute "2) Remove an entry");
 				addressbook.removeEntry();
 				break;
-			case 3: 
+			case "3": 
 				//"3) Search for a specific entry");
 				addressbook.searchEntry();
 				break;
-			case 4:
+			case "4":
 				//"4) Print Address Book");
 				addressbook.printAddressBook();
 				break;
-			case 5:
+			case "5":
 				//"5) Delete Book");
 				addressbook.deleteBook();
 				break;
-			case 6: 
+			case "6": 
 				//quit
 			
 				System.out.println("Goodbye");
@@ -72,7 +72,6 @@
 			System.out.println("--------------------------------------------");
 			System.out.println("Please enter a number 1-6 to make your selection.");	
 			}
-		
 	
 	}
 			
@@ -80,19 +79,7 @@
 		
 		
 			
-//			/*Starting the Program 
-//			Upon starting the program, it should as the user what action they want to perform. 
-//			1) Add an entry 
-//			2) Remove an entry 
-//			3) Search for a specific entry 
-//			4) Print Address Book 
-//			5) Delete Book 
-//			6) Quit 
-//			Please choose what you'd like to do with the database: 
-//			The user must enter a number 1-6. If the user enters invalid input, print an error message and show the main menu again to take in a new input.*/ 
-//
-//		}
-//		//Asks user for Contact details
+
 
 			
 		
